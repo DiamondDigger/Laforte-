@@ -50,7 +50,36 @@ class HighArray {
         }
 
 public class HighArrayApp {
+    public static void main(String[] args) {
+        HighArray arr;                              // создаем ссылку на массив
+        int maxSize = 20;
+        arr = new HighArray(maxSize);
 
+        arr.insert(34);                      // вставка элементов
+        arr.insert(75);
+        arr.insert(21);
+        arr.insert(43);
+        arr.insert(100);
+        arr.insert(67);
+        arr.insert(98);
+        arr.insert(31);
+        arr.insert(21);
+        arr.insert(1);
+
+        arr.display();                              // вывод элементов
+
+        int searchKey = 75;                         // поиск элемента
+        if (arr.find(searchKey))
+            System.out.println("Found" + searchKey);
+        else
+            System.out.println("Can't find" + searchKey);
+
+        arr.delete(43);                       // удаление трех элементов
+        arr.delete(21);
+        arr.delete(98);
+
+        arr.display();                              // удаление трех элементов
+    }
 }
 
 
