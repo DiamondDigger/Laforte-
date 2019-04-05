@@ -1,8 +1,8 @@
-//HighArray.java
+package org.Array;//HighArray.java
 //класс массива с высокоуровневым интерфейсом
 /////////////////////////////////////////////
 
-class HighArray {
+ class HighArray {
             private long[] a;                   // ссылка на массив а
             private int nElems;                 // кол-во элементов массива
 
@@ -30,13 +30,13 @@ class HighArray {
             public boolean delete (long value){
                 int j;
                 for (j = 0; j < nElems; j ++)   // поиск значения
-                    if (a[j] == nElems)
+                    if (a[j] == value)
                         break;
                     if ( j == nElems)           //  найти не удалось
                         return false;
                     else {                                      // значение найдено
-                        for (int k = j; k < nElems; k ++)       // сдвиг элементов
-                            a[k] = a[k+1];
+                        for (int k = j; k < nElems; k ++)        // сдвиг элементов
+                            a[k] = a[k + 1];
                         nElems --;                              // уменьшение размера
                         return true;
                     }
@@ -44,7 +44,7 @@ class HighArray {
 
             public void display(){                   // вывод содержимого массива
                 for (int j = 0; j < nElems; j ++)    // для каждого элемента
-                    System.out.print(a[j] + "");     // вывод
+                    System.out.print(a[j] + " ");     // вывод
                 System.out.println();
             }
         }
@@ -68,15 +68,17 @@ public class HighArrayApp {
 
         arr.display();                             // вывод элементов
 
-        int searchKey = 75;                        // поиск элемента
+        int searchKey = 100;                        // поиск элемента
         if (arr.find(searchKey))
-            System.out.println("Found" + searchKey);
+            System.out.println("Found " + searchKey);
         else
-            System.out.println("Can't find" + searchKey);
+            System.out.println("Can't find " + searchKey);
 
         arr.delete(43);                      // удаление трех элементов
         arr.delete(21);
         arr.delete(98);
+        arr.delete(34);
+        arr.delete(100);
 
         arr.display();                             // удаление трех элементов
     }
