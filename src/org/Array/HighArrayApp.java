@@ -2,7 +2,7 @@ package org.Array;//HighArray.java
 //класс массива с высокоуровневым интерфейсом
 /////////////////////////////////////////////
 
- class HighArray {
+class HighArray {
             private long[] a;                   // ссылка на массив а
             private int nElems;                 // кол-во элементов массива
 
@@ -44,8 +44,21 @@ package org.Array;//HighArray.java
 
             public void display(){                   // вывод содержимого массива
                 for (int j = 0; j < nElems; j ++)    // для каждого элемента
-                    System.out.print(a[j] + " ");     // вывод
+                    System.out.print(a[j] + " ");    // вывод
                 System.out.println();
+            }
+
+            public void getMax (){                   // поиск наибольшего элемента массива
+                long maxElem = 0;
+                int j;
+                for ( j = 0; j < nElems; j ++){
+                    if (maxElem < a[j])
+                        maxElem = a[j];
+                }
+                if (maxElem!= 0)                     // Массив пустой ?
+                    System.out.println("Max element = " + maxElem);     // Нет, выводим Мах element
+                else
+                    System.out.println("-1");                           // Да, выводим -1
             }
         }
 
@@ -59,7 +72,7 @@ public class HighArrayApp {
         arr.insert(75);
         arr.insert(21);
         arr.insert(43);
-        arr.insert(100);
+        arr.insert(90);
         arr.insert(67);
         arr.insert(98);
         arr.insert(31);
@@ -68,19 +81,34 @@ public class HighArrayApp {
 
         arr.display();                             // вывод элементов
 
-        int searchKey = 100;                        // поиск элемента
+        int searchKey = 22;                        // поиск элемента
         if (arr.find(searchKey))
             System.out.println("Found " + searchKey);
         else
             System.out.println("Can't find " + searchKey);
 
-        arr.delete(43);                      // удаление трех элементов
+        arr.getMax();                              // поиск наибольшего значения
+
+        arr.delete(43);                      // удаление n элементов
         arr.delete(21);
         arr.delete(98);
         arr.delete(34);
         arr.delete(100);
 
-        arr.display();                             // удаление трех элементов
+        arr.display();                             // вывод элементов
+
+        arr.getMax();
+
+        arr.delete(90);                      // удаление n элементов
+        arr.delete(31);
+        arr.delete(1);
+        arr.delete(75);
+        arr.delete(67);
+        arr.delete(21);
+
+        arr.display();                             // вывод элементов
+
+        arr.getMax();
     }
 }
 
