@@ -29,10 +29,10 @@ class HighArray {
 
             public boolean delete (long value){
                 int j;
-                for (j = 0; j < nElems; j ++)    // поиск значения
+                for (j = 0; j < nElems; j ++)   // поиск значения
                     if (a[j] == nElems)
                         break;
-                    if ( j == nElems)             //  найти не удалось
+                    if ( j == nElems)           //  найти не удалось
                         return false;
                     else {                                      // значение найдено
                         for (int k = j; k < nElems; k ++)       // сдвиг элементов
@@ -51,7 +51,7 @@ class HighArray {
 
 public class HighArrayApp {
     public static void main(String[] args) {
-        HighArray arr;                              // создаем ссылку на массив
+        HighArray arr;                             // создаем ссылку на массив
         int maxSize = 20;
         arr = new HighArray(maxSize);
 
@@ -66,19 +66,19 @@ public class HighArrayApp {
         arr.insert(21);
         arr.insert(1);
 
-        arr.display();                              // вывод элементов
+        arr.display();                             // вывод элементов
 
-        int searchKey = 75;                         // поиск элемента
+        int searchKey = 75;                        // поиск элемента
         if (arr.find(searchKey))
             System.out.println("Found" + searchKey);
         else
             System.out.println("Can't find" + searchKey);
 
-        arr.delete(43);                       // удаление трех элементов
+        arr.delete(43);                      // удаление трех элементов
         arr.delete(21);
         arr.delete(98);
 
-        arr.display();                              // удаление трех элементов
+        arr.display();                             // удаление трех элементов
     }
 }
 
