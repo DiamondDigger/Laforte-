@@ -48,16 +48,26 @@ class HighArray {
                 System.out.println();
             }
 
-            public void getMax (){                   // поиск наибольшего элемента массива
+            public void removeMax (){                   // поиск наибольшего элемента массива
                 long maxElem = 0;
                 int j;
+                int maxIndex = 0;                          // индекс максимального элемента
                 for ( j = 0; j < nElems; j ++){
-                    if (maxElem < a[j])
+                    if (maxElem < a[j]) {
                         maxElem = a[j];
+                        maxIndex = j;
+                    }
                 }
-                if (maxElem!= 0)                     // Массив пустой ?
+                if (maxElem!= 0) {                     // Массив пустой ?
                     System.out.println("Max element = " + maxElem);     // Нет, выводим Мах element
-                else
+                    System.out.println("index of Max element = " + maxIndex);
+                    for ( int k = maxIndex; k < nElems; k++)
+                        a[k] = a[k + 1];
+                    nElems --;
+                    for (j = 0; j < nElems; j++)
+                        System.out.print(a[j] + " ");
+                    System.out.println();
+                } else
                     System.out.println("-1");                           // Да, выводим -1
             }
         }
@@ -81,34 +91,19 @@ public class HighArrayApp {
 
         arr.display();                             // вывод элементов
 
-        int searchKey = 22;                        // поиск элемента
+        int searchKey = 1;                        // поиск элемента
         if (arr.find(searchKey))
             System.out.println("Found " + searchKey);
         else
             System.out.println("Can't find " + searchKey);
 
-        arr.getMax();                              // поиск наибольшего значения
+        arr.removeMax();                              // поиск наибольшего значения
 
         arr.delete(43);                      // удаление n элементов
-        arr.delete(21);
-        arr.delete(98);
-        arr.delete(34);
-        arr.delete(100);
-
-        arr.display();                             // вывод элементов
-
-        arr.getMax();
-
-        arr.delete(90);                      // удаление n элементов
-        arr.delete(31);
-        arr.delete(1);
-        arr.delete(75);
         arr.delete(67);
-        arr.delete(21);
 
-        arr.display();                             // вывод элементов
+        arr.display();
 
-        arr.getMax();
     }
 }
 
