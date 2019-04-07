@@ -58,17 +58,17 @@ class HighArray {
                         maxIndex = j;
                     }
                 }
-                if (maxElem!= 0) {                     // Массив пустой ?
-                    System.out.println("Max element = " + maxElem);     // Нет, выводим Мах element
+                if (maxElem!= 0) {                                              // Массив пустой ?
+                    System.out.println("Max element = " + maxElem);             // Нет, выводим Мах element
                     System.out.println("index of Max element = " + maxIndex);
-                    for ( int k = maxIndex; k < nElems; k++)
+                    for ( int k = maxIndex; k < nElems; k++)           // Сдвигаем элементы массива
                         a[k] = a[k + 1];
                     nElems --;
-                    for (j = 0; j < nElems; j++)
+                    for (j = 0; j < nElems; j++)                       // Выводим массив после удаления элемента
                         System.out.print(a[j] + " ");
                     System.out.println();
                 } else
-                    System.out.println("-1");                           // Да, выводим -1
+                    System.out.println("-1");                                   // Да, выводим -1
             }
         }
 
@@ -91,13 +91,13 @@ public class HighArrayApp {
 
         arr.display();                             // вывод элементов
 
-        int searchKey = 1;                        // поиск элемента
+        int searchKey = 1;                         // поиск элемента
         if (arr.find(searchKey))
             System.out.println("Found " + searchKey);
         else
             System.out.println("Can't find " + searchKey);
 
-        arr.removeMax();                              // поиск наибольшего значения
+        arr.removeMax();                           // поиск наибольшего значения
 
         arr.delete(43);                      // удаление n элементов
         arr.delete(67);
