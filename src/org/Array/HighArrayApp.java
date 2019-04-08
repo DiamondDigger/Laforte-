@@ -64,7 +64,7 @@ class HighArray {
                     for ( int k = maxIndex; k < nElems; k++)           // Сдвигаем элементы массива
                         a[k] = a[k + 1];
                     nElems --;
-                    for (j = 0; j < nElems; j++)                       // Выводим массив после удаления элемента
+                    for (j = 0; j < nElems; j ++)                       // Выводим массив после удаления элемента
                         System.out.print(a[j] + " ");
                     System.out.println();
                 } else
@@ -74,12 +74,28 @@ class HighArray {
             public void noDubs() {                 // метод поиска дубликатов
                 int j;
                 int nDubs = 0;                                                  // счетчик повторов
-                for (j = 0; j < nElems - 1; j++){                               // берем элемент массива
-                    for (int k = j + 1; k < nElems; k++){                       // и сравниваем со всеми остальными элементами
-                        if (a[j] == a[k]) {
-                            a[k] = 0;
-                            nDubs++;
+                for (j = 0; j < nElems - 1; j ++){                              // берем элемент массива
+                    if (a[j] != 0) {                                            // проверяем, чтобы счечик не считал повторы 0, после зануления
+                        for (int k = j + 1; k < nElems; k++){                   // и сравниваем со всеми остальными элементами
+                            if (a[j] == a[k]) {
+                                a[k] = 0;
+                                nDubs++;
+                            }
                         }
+                    }
+                }
+
+                System.out.println("Array before changing elements: ");
+
+                for (j = 0; j < nElems; j ++){
+                    System.out.print(a[j] + " ");
+                }
+                System.out.println();
+
+                for (j = 0; j < nElems; j ++){
+                    if (a[j] == 0) {
+                        a[j] = a[j + 1];
+                        a[j + 1]= 0;
                     }
                 }
                 System.out.println("nDubs = " + nDubs);
@@ -97,7 +113,9 @@ public class HighArrayApp {
         arr.insert(75);
         arr.insert(21);
         arr.insert(43);
-        arr.insert(90);
+        arr.insert(75);
+        arr.insert(27);
+        arr.insert(75);
         arr.insert(67);
         arr.insert(98);
         arr.insert(31);
@@ -113,18 +131,18 @@ public class HighArrayApp {
 
         arr.display();
 
-        int searchKey = 1;                         // поиск элемента
-        if (arr.find(searchKey))
-            System.out.println("Found " + searchKey);
-        else
-            System.out.println("Can't find " + searchKey);
-
-        arr.removeMax();                           // поиск наибольшего значения
-
-        arr.delete(43);                      // удаление n элементов
-        arr.delete(67);
-
-        arr.display();
+//        int searchKey = 1;                         // поиск элемента
+//        if (arr.find(searchKey))
+//            System.out.println("Found " + searchKey);
+//        else
+//            System.out.println("Can't find " + searchKey);
+//
+//        arr.removeMax();                           // поиск наибольшего значения
+//
+//        arr.delete(43);                      // удаление n элементов
+//        arr.delete(67);
+//
+//        arr.display();
 
     }
 }
