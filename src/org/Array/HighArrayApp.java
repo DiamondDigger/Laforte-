@@ -71,11 +71,11 @@ class HighArray {
                     System.out.println("-1");                                   // Да, выводим -1
             }
 
-            public void noDubs() {
+            public void noDubs() {                 // метод поиска дубликатов
                 int j;
-                int nDubs = 0;
-                for (j = 0; j < nElems - 1; j++){
-                    for (int k = j + 1; k < nElems; k++){
+                int nDubs = 0;                                                  // счетчик повторов
+                for (j = 0; j < nElems - 1; j++){                               // берем элемент массива
+                    for (int k = j + 1; k < nElems; k++){                       // и сравниваем со всеми остальными элементами
                         if (a[j] == a[k]) {
                             a[k] = 0;
                             nDubs++;
@@ -83,6 +83,7 @@ class HighArray {
                     }
                 }
                 System.out.println("nDubs = " + nDubs);
+
              }
         }
 
