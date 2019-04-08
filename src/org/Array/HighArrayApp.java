@@ -70,6 +70,20 @@ class HighArray {
                 } else
                     System.out.println("-1");                                   // Да, выводим -1
             }
+
+            public void noDubs() {
+                int j;
+                int nDubs = 0;
+                for (j = 0; j < nElems - 1; j++){
+                    for (int k = j + 1; k < nElems; k++){
+                        if (a[j] == a[k]) {
+                            a[k] = 0;
+                            nDubs++;
+                        }
+                    }
+                }
+                System.out.println("nDubs = " + nDubs);
+             }
         }
 
 public class HighArrayApp {
@@ -88,8 +102,15 @@ public class HighArrayApp {
         arr.insert(31);
         arr.insert(21);
         arr.insert(1);
+        arr.insert(43);
+        arr.insert(1);
+        arr.insert(43);
 
         arr.display();                             // вывод элементов
+
+        arr.noDubs();                              // поиск дубликатов
+
+        arr.display();
 
         int searchKey = 1;                         // поиск элемента
         if (arr.find(searchKey))
