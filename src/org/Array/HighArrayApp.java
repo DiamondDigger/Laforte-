@@ -92,19 +92,25 @@ class HighArray {
                 }
                 System.out.println();
 
-                for (int i = j = 0; j < nElems; j ++, i ++){
-                    if (a[j] == 0)                                              // если элемент равен 0
-                        j++;                                                    // переходим к следующему
-                    a[i] = a[j];                                                // новый массив с 0 в конце
+                int i;
+                for ( i = j = 0; j < nElems; j ++, i ++){
+                    if (a[j] == 0)                                               // если элемент равен 0
+                        j ++;                                                    // переходим к следующему
+                    a[i] = a[j];                                                 // новый массив с 0 в конце
                     System.out.print(a[i] + " - ");
                 }
                 System.out.println();
 
-                for ( int i = 0; i < nElems; i ++){
-                    if (a[i] == 0)
-                        nElems --;
+                int newElems = 0;
+                for (i = 0; i < nElems; i++) {
+                    if (a[i] != 0) {
+                        System.out.print(a[i] + "  ");
+                        newElems ++;
+                    } else break;
                 }
-                System.out.println(nElems);
+                System.out.println();
+
+                System.out.println("newElems = " + newElems);
 
 
                 System.out.println("nDubs = " + nDubs);
