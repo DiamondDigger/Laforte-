@@ -75,7 +75,7 @@ class HighArray {
                 int j;
                 int nDubs = 0;                                                  // счетчик повторов
                 for (j = 0; j < nElems - 1; j ++){                              // берем элемент массива
-                    if (a[j] != 0) {                                            // проверяем, чтобы счечик не считал повторы 0, после зануления
+                    if (a[j] != 0) {                                            // проверяем, чтобы счетчик не считал повторы 0, после зануления
                         for (int k = j + 1; k < nElems; k++){                   // и сравниваем со всеми остальными элементами
                             if (a[j] == a[k]) {
                                 a[k] = 0;
@@ -93,7 +93,7 @@ class HighArray {
                 System.out.println();
 
                 int i;
-                for ( i = j = 0; j < nElems; j ++, i ++){
+                for ( i = j = 0; j < nElems; j ++, i ++){                   // помещаем нули в конец массива
                     if (a[j] == 0)                                               // если элемент равен 0
                         j ++;                                                    // переходим к следующему
                     a[i] = a[j];                                                 // новый массив с 0 в конце
@@ -101,12 +101,12 @@ class HighArray {
                 }
                 System.out.println();
 
-                int newElems = 0;
+                int newElems = 0;                                                // размер массива после удаления повторов
                 for (i = 0; i < nElems; i++) {
-                    if (a[i] != 0) {
+                    if (a[i] != 0) {                                             // выводим новый массив без повторов (0)
                         System.out.print(a[i] + "  ");
                         newElems ++;
-                    } else break;
+                    } else break;                                                // прерываемся когда встречаем повтор (0)
                 }
                 System.out.println();
 
