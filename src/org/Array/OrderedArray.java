@@ -57,7 +57,38 @@ public class OrderedArray {
 
     public void display(){
         for (int j = 0; j < nElems; j++)
-            System.out.println(a[j] + " ");
+            System.out.print(a[j] + " ");
         System.out.println();
+    }
+}
+class OrderedArrayApp{
+    public static void main(String [] args){
+        int maxSize = 100;
+        OrderedArray arr;
+        arr = new OrderedArray(maxSize);
+
+        arr.insert(44);
+        arr.insert(99);
+        arr.insert(14);
+        arr.insert(32);
+        arr.insert(45);
+        arr.insert(67);
+        arr.insert(88);
+        arr.insert(12);
+
+        arr.display();
+
+        long searchKey = 44;
+        if (arr.find(searchKey) != arr.size())
+            System.out.println("Found " + searchKey);
+        else
+            System.out.println("Can't find " + searchKey);
+
+        arr.display();
+
+        arr.delete(45);
+        arr.delete(99);
+
+        arr.display();
     }
 }
