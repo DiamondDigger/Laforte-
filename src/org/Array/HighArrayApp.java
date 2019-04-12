@@ -97,23 +97,23 @@ class HighArray {
                     if (a[j] == 0)                                               // если элемент равен 0
                         j ++;                                                    // переходим к следующему
                     a[i] = a[j];                                                 // новый массив с 0 в конце
-                    System.out.print(a[i] + " - ");
+//                    System.out.print(a[i] + " - ");                            // выводим массив для проверки результата
                 }
-                System.out.println();
+//                System.out.println();                                          // переходим на новую строку
 
                 int newElems = 0;                                                // размер массива после удаления повторов
                 for (i = 0; i < nElems; i++) {
-                    if (a[i] != 0) {                                             // выводим новый массив без повторов (0)
-                        System.out.print(a[i] + "  ");
-                        newElems ++;
+                    if (a[i] != 0) {                                             // выводим обновленный массив без повторов (0)
+//                        System.out.print(a[i] + "  ");
+                        newElems ++;                                             // считаем количество элементов в массиве без нулей
                     } else break;                                                // прерываемся когда встречаем повтор (0)
-                }
-                System.out.println();
+                }                                                                // переходим на новую строку
+//                System.out.println();
 
-                System.out.println("newElems = " + newElems);
+                nElems = newElems;                                               // меняем количество элементов массива для корректного отображения в методе display
 
-
-                System.out.println("nDubs = " + nDubs);
+                System.out.println("newElems = " + newElems);                    // проверяем результат
+                System.out.println("nDubs = " + nDubs);                          // проверяем результат
 
              }
         }
