@@ -4,7 +4,7 @@ public class OrderedArray {
     private long[] a;               // Ссылка на массив а
     private int nElems;             // Количество элементов данных
 
-    public OrderedArray(int max){  // Конструктор
+    public OrderedArray(int max){   // Конструктор
         a = new long[max];          // Создание массива
         nElems = 0;
     }
@@ -21,55 +21,55 @@ public class OrderedArray {
         while (true){
             curIn = (lowerBound + upperBound) / 2;
             if (a[curIn]==searchKey)
-                return curIn;
+                return curIn;                           // Элемент найден
             else if (lowerBound > upperBound)
-                    return nElems;
-            else {
+                    return nElems;                      // Элемент не найден
+            else {                                      // Деление диапозона
                  if (a[curIn] < searchKey)
-                     lowerBound = curIn + 1;
+                     lowerBound = curIn + 1;            // В верхней половине
                  else
-                     upperBound = curIn - 1;
+                     upperBound = curIn - 1;            // В нижней половине
                  }
         }
     }
 
-    public void insert(long value){
+    public void insert(long value){                     // Вставка элемента в массив
         int j;
-        for (j = 0; j < nElems; j++){
-            if (a[j] > value)
+        for (j = 0; j < nElems; j++){                   // Определение позиции вставки
+            if (a[j] > value)                           // Линейный поиск
                 break;
         }
-        for (int k = nElems; k > j; k--)
+        for (int k = nElems; k > j; k--)                // Перемещение последующих элементов
             a[k] = a[k-1];
-        a[j] = value;
-        nElems++;
+        a[j] = value;                                   // Вставка
+        nElems++;                                       // Увеличение размера
     }
 
     public boolean delete(long value){
         int j = find(value);
         if (j == nElems)
-            return false;
-        else {
-            for (int k = j; k < nElems; k++)
+            return false;                               // Найти не удалось
+        else {                                          // Элемент найден
+            for (int k = j; k < nElems; k++)            // Перемещение следующих элементов
                 a[k] = a[k+1];
-            nElems--;
+            nElems--;                                   // Уменьшение размера
             return true;
         }
     }
 
-    public void display(){
-        for (int j = 0; j < nElems; j++)
-            System.out.print(a[j] + " ");
+    public void display(){                              // Вывод содержимого массива
+        for (int j = 0; j < nElems; j++)                // Перебор всех элементов
+            System.out.print(a[j] + " ");               // Вывод текущего элемента
         System.out.println();
     }
 }
 class OrderedArrayApp{
     public static void main(String [] args){
-        int maxSize = 100;
-        OrderedArray arr;
-        arr = new OrderedArray(maxSize);
+        int maxSize = 100;                              // Размер массива
+        OrderedArray arr;                               // Ссылка на массив
+        arr = new OrderedArray(maxSize);                // Создание массива
 
-        arr.insert(44);
+        arr.insert(44);                           // Вставка элементов
         arr.insert(99);
         arr.insert(14);
         arr.insert(32);
@@ -78,17 +78,17 @@ class OrderedArrayApp{
         arr.insert(88);
         arr.insert(12);
 
-        arr.display();
+        arr.display();                                  // Вывод массива
 
         long searchKey = 44;
-        if (arr.find(searchKey) != arr.size())
+        if (arr.find(searchKey) != arr.size())          // Поиск элемента
             System.out.println("Found " + searchKey);
         else
             System.out.println("Can't find " + searchKey);
 
         arr.display();
 
-        arr.delete(32);
+        arr.delete(32);                           // Удаление элементов массива
         arr.delete(14);
         arr.delete(44);
 
