@@ -24,10 +24,12 @@ public class OrderedArray {
                 return curIn;
             else if (lowerBound > upperBound)
                     return nElems;
-                 else if (lowerBound < searchKey)
-                        lowerBound = curIn + 1;
-                      else
-                        upperBound = curIn - 1;
+            else {
+                 if (a[curIn] < searchKey)
+                     lowerBound = curIn + 1;
+                 else
+                     upperBound = curIn - 1;
+                 }
         }
     }
 
@@ -86,8 +88,9 @@ class OrderedArrayApp{
 
         arr.display();
 
-        arr.delete(45);
-        arr.delete(99);
+        arr.delete(32);
+        arr.delete(14);
+        arr.delete(44);
 
         arr.display();
     }
