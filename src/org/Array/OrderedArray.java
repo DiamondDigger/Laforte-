@@ -33,9 +33,20 @@ public class OrderedArray {
         }
     }
 
-    public void insert(long value){                     // Вставка элемента в массив
+    public void insert(long value) // Вставка элемента в массив
+    {
         int j;
-        int curIn = 0;
+        for(j=0; j<nElems; j++) // Определение позиции вставки
+            if(a[j] > value) // (линейный поиск)
+                break;
+        for(int k=nElems; k>j; k--) // Перемещение последующих элементов
+            a[k] = a[k-1];
+        a[j] = value; // Вставка
+        nElems++; // Увеличение размера
+    }
+    public void insertBuble(long value){                     // Вставка элемента в массив
+        int j;
+        int curIn ;
         int lowerBound = 0;
         int upperBound = nElems-1;
 
@@ -46,7 +57,7 @@ public class OrderedArray {
         }
          if (a[nElems] < value){
              nElems ++;
-             for ( j = nElems; j >= 0; j--)
+             for ( j = nElems -1 ; j >= 0; j--)
                  a[j - 1] = a[j];
          }
         while (true){
