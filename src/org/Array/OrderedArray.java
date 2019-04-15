@@ -38,7 +38,15 @@ public class OrderedArray {
         for (j = 0; j < nElems; j++){                   // Определение позиции вставки
             if (a[j] > value)                           // Линейный поиск
                 break;
+        int i = find(value);                            // Добавляемый элемент
+        if (i!= nElems)
+            for ( j = nElems; j > i ; j --){
+                    a[j] = a[j-1];
+                }
+                a[i] = value;                           // Добавляем элемент в массив
+                nElems ++;
         }
+
         for (int k = nElems; k > j; k--)                // Перемещение последующих элементов
             a[k] = a[k-1];
         a[j] = value;                                   // Вставка
