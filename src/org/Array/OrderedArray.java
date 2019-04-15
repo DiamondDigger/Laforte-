@@ -35,22 +35,28 @@ public class OrderedArray {
 
     public void insert(long value){                     // Вставка элемента в массив
         int j;
-        for (j = 0; j < nElems; j++){                   // Определение позиции вставки
-            if (a[j] > value)                           // Линейный поиск
-                break;
-        int i = find(value);                            // Добавляемый элемент
-        if (i!= nElems)
-            for ( j = nElems; j > i ; j --){
-                    a[j] = a[j-1];
-                }
-                a[i] = value;                           // Добавляем элемент в массив
-                nElems ++;
-        }
+        int curIn = 0;
+        int lowerBound = 0;
+        int upperBound = nElems-1;
 
-        for (int k = nElems; k > j; k--)                // Перемещение последующих элементов
-            a[k] = a[k-1];
-        a[j] = value;                                   // Вставка
-        nElems++;                                       // Увеличение размера
+        if (a[0] > value){
+            nElems ++;
+            for ( j = 0; j < nElems; j++)
+                a[j + 1] = a[j];
+        }
+         if (a[nElems] < value){
+             nElems ++;
+             for ( j = nElems; j >= 0; j--)
+                 a[j - 1] = a[j];
+         }
+        while (true){
+            curIn = (lowerBound + upperBound)/2;
+            if (a[curIn] < value)
+                lowerBound = curIn + 1;
+            else
+                upperBound = curIn - 1;
+
+        }
     }
 
     public boolean delete(long value){
